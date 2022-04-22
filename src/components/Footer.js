@@ -1,114 +1,61 @@
 import * as React from "react";
 import { Link } from "gatsby";
 
-import logo from "../img/logo.svg";
-import facebook from "../img/social/facebook.svg";
-import instagram from "../img/social/instagram.svg";
-import twitter from "../img/social/twitter.svg";
-import vimeo from "../img/social/vimeo.svg";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCoffee} from '@fortawesome/free-solid-svg-icons'
+import {faGithub} from '@fortawesome/free-brands-svg-icons'
+import {faReact} from '@fortawesome/free-brands-svg-icons'
+
+import SocialIcons from './SocialIcons'
+
 
 const Footer = class extends React.Component {
+  componentDidMount() {
+    this.handleLoad();
+    window.addEventListener('resize', this.handleLoad);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleLoad);
+  }
+
+  handleLoad() {
+    var footerSpacingDiv = document.getElementById("footer-spacing");
+
+    var footer = document.getElementById("footer");
+
+    var footerHeight;
+
+    if (footer && footer !== undefined) {
+      footerHeight = footer.offsetHeight;
+    }
+    if (footerSpacingDiv && footerSpacingDiv !== undefined) {
+      footerSpacingDiv.style.paddingBottom = footerHeight + "px";
+    }
+
+  }
+
   render() {
-    return (
-      <footer className="footer has-background-black has-text-white-ter">
-        <div className="content has-text-centered">
-          <img
-            src={logo}
-            alt="Kaldi"
-            style={{ width: "14em", height: "10em" }}
-          />
-        </div>
-        <div className="content has-text-centered has-background-black has-text-white-ter">
-          <div className="container has-background-black has-text-white-ter">
-            <div style={{ maxWidth: "100vw" }} className="columns">
-              <div className="column is-4">
-                <section className="menu">
-                  <ul className="menu-list">
-                    <li>
-                      <Link to="/" className="navbar-item">
-                        Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/about">
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/products">
-                        Products
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact/examples">
-                        Form Examples
-                      </Link>
-                    </li>
-                    <li>
-                      <a
-                        className="navbar-item"
-                        href="/admin/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Admin
-                      </a>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4">
-                <section>
-                  <ul className="menu-list">
-                    <li>
-                      <Link className="navbar-item" to="/blog">
-                        Latest Stories
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact">
-                        Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4 social">
-                <a title="facebook" href="https://facebook.com">
-                  <img
-                    src={facebook}
-                    alt="Facebook"
-                    style={{ width: "1em", height: "1em" }}
-                  />
-                </a>
-                <a title="twitter" href="https://twitter.com">
-                  <img
-                    className="fas fa-lg"
-                    src={twitter}
-                    alt="Twitter"
-                    style={{ width: "1em", height: "1em" }}
-                  />
-                </a>
-                <a title="instagram" href="https://instagram.com">
-                  <img
-                    src={instagram}
-                    alt="Instagram"
-                    style={{ width: "1em", height: "1em" }}
-                  />
-                </a>
-                <a title="vimeo" href="https://vimeo.com">
-                  <img
-                    src={vimeo}
-                    alt="Vimeo"
-                    style={{ width: "1em", height: "1em" }}
-                  />
-                </a>
-              </div>
+    return (<footer className="footer" id="footer">
+      <div className="content">
+        <div className="container">
+          <div style={{
+              maxWidth: '100vw'
+          }} className="columns">
+            <div className="column is-4">
+              <p className="has-text-centered-mobile">
+                Made with <FontAwesomeIcon icon={faCoffee}/> coffee, Gatsby, and a lot of <FontAwesomeIcon icon={faGithub}/> commits
+              </p>
+            </div>
+            <div className="column is-4 has-text-centered">
+              <a href="mailto:joshuaasalazar@gmail.com">JoshuaASalazar@gmail.com</a>
+            </div>
+            <div className="column is-4 has-text-right has-text-centered-mobile footer-social-icons">
+              <SocialIcons></SocialIcons>
             </div>
           </div>
         </div>
-      </footer>
-    );
+      </div>
+    </footer>)
   }
 };
 
