@@ -23,8 +23,6 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => {
-  const heroImage = getImage(image) || image;
-
   return (
     <div>
       <HomepageHeader></HomepageHeader>
@@ -129,12 +127,7 @@ export const IndexPageTemplate = ({
             <div class="column"></div>
             <div className="column is-one-fifth is-one-third-mobile gs_reveal low-poly-self-container">
 
-              <PreviewCompatibleImage
-                imageInfo={{
-                  image: '/img/low-poly-self-final.png',
-                  alt: `low poly self portrait`,
-                }}
-              />
+              
               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 266.95 350.14" className="low-poly-self-svg" xmlSpace="preserve">
                 <polygon className="lp0" points="68.56,304.6 54.94,291.8 68.72,268.16 " />
@@ -196,7 +189,6 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
@@ -237,11 +229,6 @@ export const pageQuery = graphql`
         description
         intro {
           blurbs {
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 240, quality: 64, layout: CONSTRAINED)
-              }
-            }
             text
           }
           heading
