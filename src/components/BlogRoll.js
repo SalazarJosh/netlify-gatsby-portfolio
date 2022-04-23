@@ -25,12 +25,8 @@ class BlogRollTemplate extends React.Component {
                           imageInfo={{
                             image: post.frontmatter.featuredimage,
                             alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                            width:
-                              post.frontmatter.featuredimage.childImageSharp
-                                .gatsbyImageData.width,
-                            height:
-                              post.frontmatter.featuredimage.childImageSharp
-                                .gatsbyImageData.height,
+                            width: post.frontmatter.featuredimage.childImageSharp.gatsbyImageData.width,
+                            height: post.frontmatter.featuredimage.childImageSharp.gatsbyImageData.height,
                           }}
                         />
                       </Link>
