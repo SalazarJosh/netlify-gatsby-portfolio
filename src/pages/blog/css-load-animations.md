@@ -3,7 +3,7 @@ templateKey: 'blog-post'
 title: 'CSS Load Animations'
 date: 2022-04-29
 featuredpost: false
-listed: true
+listed: false
 featuredimage: /img/gitlab-feature.png
 description: >-
   
