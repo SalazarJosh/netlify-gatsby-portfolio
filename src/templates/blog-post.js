@@ -53,8 +53,8 @@ export const BlogPostTemplate = ({
           </div>
         </div>
         {!listed &&
-          <div class="columns">
-            <div class="column">
+          <div className="columns">
+            <div className="column">
               <div className="unlisted-block">
                 <p>This blog is currently unlisted and will not appear in search results.</p>
               </div>
@@ -118,7 +118,7 @@ export const BlogPostTemplate = ({
       </div>
       <div className="is-hidden">
         <div className="widealign"></div>
-        <table class="table is-bordered">
+        <table className="table is-bordered">
           <thead>
             <tr>
               <th></th>

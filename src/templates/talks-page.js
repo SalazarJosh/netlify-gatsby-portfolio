@@ -68,18 +68,18 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
         </div>
       </section>
       <div className="say-hello-background">
-        <div class="container">
-          <div class="columns">
-            <div class="column is-8">
+        <div className="container">
+          <div className="columns">
+            <div className="column is-8">
               <a href="mailto:joshuaasalazar@gmail.com" className="hello-link">
                 <div className="hello-content">
                   <div className="hello-container">
                     <p className="hello-text">Say </p>
-                    <ul class="content_container_list">
-                      <li class="content_container_list_item">Hello !</li>
-                      <li class="content_container_list_item">Asalaam alaikum !</li>
-                      <li class="content_container_list_item">Hola !</li>
-                      <li class="content_container_list_item">Hej !</li>
+                    <ul className="content_container_list">
+                      <li className="content_container_list_item">Hello !</li>
+                      <li className="content_container_list_item">Asalaam alaikum !</li>
+                      <li className="content_container_list_item">Hola !</li>
+                      <li className="content_container_list_item">Hej !</li>
                     </ul>
                     <p className="email-hello-text"><small>JoshuaASalazar@gmail.com <FontAwesomeIcon icon={faExternalLinkSquareAlt}/></small></p>
 

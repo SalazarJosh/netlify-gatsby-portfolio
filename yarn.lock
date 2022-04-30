@@ -5957,14 +5957,13 @@
     "lodash" "^4.17.21"
     "micromatch" "^4.0.4"
 
-"gatsby-plugin-google-analytics@^4.13.0":
-  "integrity" "sha512-6Sxnah8ElfdQTtfxUw5k0iWVSKzcNYUH4hWwiO37fhJDOuFco9Wjy/eYKdb/+RlgXCJFiVrZ7PXkMRNJKxMnNA=="
-  "resolved" "https://registry.npmjs.org/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.13.0.tgz"
+"gatsby-plugin-google-gtag@^4.13.0":
+  "integrity" "sha512-a3mshbLLunFSbginyvtJmzQemjGcwQbghkUaW5scT1+RUojKP2sjPF4F2tZQs6wYXM5wzcTJdeEHUvv15Mcxqg=="
+  "resolved" "https://registry.npmjs.org/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-4.13.0.tgz"
   "version" "4.13.0"
   dependencies:
     "@babel/runtime" "^7.15.4"
-    "minimatch" "3.0.4"
-    "web-vitals" "^1.1.2"
+    "minimatch" "^3.1.2"
 
 "gatsby-plugin-image@^2.0.0":
   "integrity" "sha512-oxG+oZ1kYboX/75jOxHZeV6Xzo5xHZ/8KUQpni58nI1+xaxZRFBthXg1SetSs8nWRsXR5Y+bq8FAf0R0iGjySg=="
@@ -9079,6 +9078,13 @@
   "integrity" "sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA=="
   "resolved" "https://registry.npmjs.org/minimatch/-/minimatch-3.0.4.tgz"
   "version" "3.0.4"
+  dependencies:
+    "brace-expansion" "^1.1.7"
+
+"minimatch@^3.1.2":
+  "integrity" "sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw=="
+  "resolved" "https://registry.npmjs.org/minimatch/-/minimatch-3.1.2.tgz"
+  "version" "3.1.2"
   dependencies:
     "brace-expansion" "^1.1.7"
 
@@ -14122,11 +14128,6 @@
   "integrity" "sha512-wYxSGajtmoP4WxfejAPIr4l0fVh+jeMXZb08wNc0tMg6xsfZXj3cECqIK0G7ZAqUq0PP8WlMDtaOGVBTAWztNw=="
   "resolved" "https://registry.npmjs.org/web-namespaces/-/web-namespaces-1.1.4.tgz"
   "version" "1.1.4"
-
-"web-vitals@^1.1.2":
-  "integrity" "sha512-PFMKIY+bRSXlMxVAQ+m2aw9c/ioUYfDgrYot0YUa+/xa0sakubWhSDyxAKwzymvXVdF4CZI71g06W+mqhzu6ig=="
-  "resolved" "https://registry.npmjs.org/web-vitals/-/web-vitals-1.1.2.tgz"
-  "version" "1.1.2"
 
 "webfont-matcher@^1.1.0":
   "integrity" "sha1-mM6VCXsp4x++czBT4Q5XFkLRxsc="

@@ -377,7 +377,7 @@ class HomepageHeader extends Component {
           </div>
         </div>
         <div className="spacer-md"></div>
-        <div class="container">
+        <div className="container">
           <div className="columns">
             <div className="column work gs_reveal">
               <p>Accessibility</p>

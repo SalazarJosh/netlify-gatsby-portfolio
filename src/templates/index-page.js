@@ -124,7 +124,7 @@ export const IndexPageTemplate = ({
         <div className="spacer-md"></div>
         <section className="">
           <div className="columns">
-            <div class="column"></div>
+            <div className="column"></div>
             <div className="column is-one-fifth is-one-third-mobile gs_reveal low-poly-self-container">
 
               {/* 
@@ -150,20 +150,20 @@ export const IndexPageTemplate = ({
           </div>
         </section>
       </div>
-      <div class="background-poly-shape is-hidden-touch">
+      <div className="background-poly-shape is-hidden-touch">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           viewBox="0 0 66.22 92.75" xmlSpace="preserve">
-          <polygon class="st-background-0" points="25.94,20.42 5,29.58 27.33,45.64 " />
-          <polygon class="st-background-1" points="14.08,60.42 27.33,45.64 22,77.86 " />
-          <polygon class="st-background-2" points="30.29,0 25.94,20.42 48.89,33.4 " />
-          <polygon class="st-background-3" points="27.33,45.64 48.89,33.4 25.94,20.42 " />
-          <polygon class="st-background-4" points="0,71.86 14.08,60.42 22,77.86 " />
-          <polygon class="st-background-5" points="40.5,54.42 48.89,33.4 27.33,45.64 " />
-          <polygon class="st-background-6" points="22,77.86 40.5,54.42 27.33,45.64 " />
-          <polygon class="st-background-7" points="59.75,35.42 48.89,33.4 40.5,54.42 " />
-          <polygon class="st-background-8" points="59,77.08 40.5,54.42 22,77.86 " />
-          <polygon class="st-background-9" points="61.78,6.75 48.89,33.4 59.75,35.42 " />
-          <polygon class="st-background-10" points="30.29,0 61.78,6.75 48.89,33.4 " />
+          <polygon className="st-background-0" points="25.94,20.42 5,29.58 27.33,45.64 " />
+          <polygon className="st-background-1" points="14.08,60.42 27.33,45.64 22,77.86 " />
+          <polygon className="st-background-2" points="30.29,0 25.94,20.42 48.89,33.4 " />
+          <polygon className="st-background-3" points="27.33,45.64 48.89,33.4 25.94,20.42 " />
+          <polygon className="st-background-4" points="0,71.86 14.08,60.42 22,77.86 " />
+          <polygon className="st-background-5" points="40.5,54.42 48.89,33.4 27.33,45.64 " />
+          <polygon className="st-background-6" points="22,77.86 40.5,54.42 27.33,45.64 " />
+          <polygon className="st-background-7" points="59.75,35.42 48.89,33.4 40.5,54.42 " />
+          <polygon className="st-background-8" points="59,77.08 40.5,54.42 22,77.86 " />
+          <polygon className="st-background-9" points="61.78,6.75 48.89,33.4 59.75,35.42 " />
+          <polygon className="st-background-10" points="30.29,0 61.78,6.75 48.89,33.4 " />
         </svg>
       </div>
       <div className="spacer-md"></div>
