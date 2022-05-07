@@ -9,12 +9,14 @@ class BlogRollTemplate extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns">
+      <div className="columns is-multiline is-mobile">
         {posts &&
-          posts.map(({ node: post }) => {
+          posts.slice(0, 
+            (this.props.count != undefined ? this.props.count : this.props.data.length))
+            .map(({ node: post }) => {
             if (post.frontmatter.listed) {
               return (
-                <div className="column gs_reveal" key={post.id}>
+                <div className="column is-one-third gs_reveal" key={post.id}>
                   <div className="port-item">
                     <div className="blogThumnailWrapper">
                       <Link
@@ -76,10 +78,11 @@ BlogRoll.propTypes = {
       edges: PropTypes.array,
     }),
   }),
+  count: PropTypes.number
 }
 
 
-export default function BlogRoll() {
+export default function BlogRoll(props) {
   return (
     <StaticQuery
       query={graphql`
@@ -116,7 +119,7 @@ export default function BlogRoll() {
         }
       }
       `}
-      render={(data, count) => <BlogRollTemplate data={data} count={count} />}
+      render={(data, count) => <BlogRollTemplate data={data} count={props.count} />}
     />
   );
 }

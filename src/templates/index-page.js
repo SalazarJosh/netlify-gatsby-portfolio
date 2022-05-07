@@ -36,7 +36,7 @@ export const IndexPageTemplate = ({
           </GSAPComponent>
           <div className="spacer-sm"></div>
           <div className="content">
-            <BlogRoll />
+            <BlogRoll count={3} />
           </div>
           <div className="spacer-sm"></div>
           <div className="view-all-posts-container gs_reveal">
