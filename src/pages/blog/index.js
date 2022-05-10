@@ -19,10 +19,6 @@ export default class BlogIndexPage extends React.Component {
             </div>
           </section>
           <div className="spacer-md"></div>
-          <p className="more-posts-text">
-            More blog posts coming soon. I just started this website so stay tunded!
-          </p>
-          <div className="spacer-md"></div>
         </div>
 
       </Layout>
