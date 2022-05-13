@@ -91,7 +91,7 @@ export const IndexPageTemplate = ({
               <div className="spacer-sm"></div>
               <h3 className="career-title">Central Michigan University</h3>
               <div className="spacer-xs"></div>
-              <p className="career-desc">I spent many nights and weekends in the classroom working with students to further their understand of all things web and digital design.</p>
+              <p className="career-desc">I spent many nights and weekends in the classroom working with students to further their understanding of all things web and digital design.</p>
               <div className="spacer-xs"></div>
               <p className="career-desc">Early on in my career I had the opportunity to work on Central Michigan University's digital applications as a UI/UX Designer and Developer.</p>
             </div>

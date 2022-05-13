@@ -43,7 +43,7 @@ const Footer = class extends React.Component {
           }} className="columns">
             <div className="column is-4">
               <p className="has-text-centered-mobile">
-                Made with <FontAwesomeIcon icon={faCoffee}/> coffee, Gatsby, and a lot of <FontAwesomeIcon icon={faGithub}/> commits
+                Built with Gatsby, deployed with Netlify
               </p>
             </div>
             <div className="column is-4 has-text-centered">
