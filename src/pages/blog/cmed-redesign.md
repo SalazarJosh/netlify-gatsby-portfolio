@@ -4,7 +4,7 @@ title: 'Redesign: College of Medicine'
 date: 2020-05-05
 featuredpost: false
 listed: true
-featuredimage: /img/case-study-osfa.png
+featuredimage: /img/cmed-redesign.png
 description: The College of Medicine Website Redesign
   
 tags:
@@ -26,7 +26,7 @@ Minimal is all rage at this point. Their requirements for the redesign included 
 
 To help us convince the college to cut back on content, we created [a CRUD map](https://medium.com/agile-adapt/using-crud-for-user-story-composition-1aefd8d90452#:~:text=CRUD%20stands%20for%20Create%2C%20Read,is%20all%20about%20the%20user.) to show all the content that exists for each audience. We used a different sheet of paper for each audience member and a sticky note for each bit of content that exists.
 
-![test](/img/cmed-contentmap.jpg)
+![several sticky notes of varying color grouped on large pieces of paper](/img/cmed-contentmap.jpg)
 
 This image shows only a small portion of the CRUD boards we had created.  This image shows 6 out of 16 boards that entirely encircled the room.
 

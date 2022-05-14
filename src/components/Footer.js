@@ -43,7 +43,7 @@ const Footer = class extends React.Component {
           }} className="columns">
             <div className="column is-4">
               <p className="has-text-centered-mobile">
-                Built with Gatsby, deployed with Netlify
+                Built with Gatsby, deployed with Netlify <br /><a href="https://github.com/SalazarJosh/netlify-gatsby-portfolio">View the repo on GitHub</a>
               </p>
             </div>
             <div className="column is-4 has-text-centered">
