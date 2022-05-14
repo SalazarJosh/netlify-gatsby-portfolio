@@ -9,7 +9,7 @@ description: The College of Medicine Website Redesign
   
 tags:
   - UX
-  - Case Study
+  - Redesign
 ---
 
 This web redesign project is from 2015. At this time we were at the early stages of integrating Material Design into our visual design language. We didn't yet have a solid component library in place but we managed to create a (for the time) visually appealing website.

@@ -2,6 +2,9 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+
+
 
 class TagRoute extends React.Component {
   render() {
@@ -21,22 +24,77 @@ class TagRoute extends React.Component {
 
     return (
       <Layout>
-        <section className="section">
-          <Helmet title={`${tag} | ${title}`} />
-          <div className="container content">
-            <div className="columns">
-              <div
-                className="column is-10 is-offset-1"
-                style={{ marginBottom: "6rem" }}
-              >
-                <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
-                <ul className="taglist">{postLinks}</ul>
-                <p>
-                  <Link to="/tags/">Browse all tags</Link>
-                </p>
-              </div>
+        <section className="tag-page">
+          <div className="spacer-md"></div>
+          <div className="container">
+            <h1 className="page-header">{tag}</h1>
+            <div className="spacer-sm"></div>
+
+            <p>{tagHeader}</p>
+            <Link to="/tags/">Browse all tags</Link>
+
+            <div className="spacer-sm"></div>
+
+            <div className="columns is-multiline is-mobile">
+              {posts.map(({ node: post }) => {
+                console.log(post);
+
+                if (post.frontmatter.listed) {
+                  return (
+                    <div className="column is-one-third gs_reveal" key={post.id}>
+                      <div className="port-item">
+                        <div className="blogThumnailWrapper">
+                          <Link
+                            className="title has-text-primary is-size-4"
+                            to={post.fields.slug}
+                          >
+                            <PreviewCompatibleImage
+                              imageInfo={{
+                                image: post.frontmatter.featuredimage,
+                                alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                                width: post.frontmatter.featuredimage.childImageSharp.gatsbyImageData.width,
+                              }}
+                            />
+                          </Link>
+                        </div>
+
+                        <div className="spacer-sm"></div>
+
+                        <div className="tagText">
+                          {post.frontmatter.tags.map((tag, index, array) => {
+                            if (array.length - 1 === index) {
+                              return (
+                                <span key={tag + `tag`}>
+                                  {tag}
+                                </span>
+                              )
+                            } else {
+                              return (
+                                <span key={tag + `tag`}>
+                                  {tag}, &nbsp;
+                                </span>
+                              )
+                            }
+                          })}
+                        </div>
+                        <Link
+                          className="blogTitle"
+                          to={post.fields.slug}
+                        >
+                          {post.frontmatter.title}
+                        </Link>
+                      </div>
+                      <div className="spacer-sm"></div>
+
+                    </div>
+                  )
+                }
+              })
+              }
             </div>
+
           </div>
+          <div className="spacer-md"></div>
         </section>
       </Layout>
     );
@@ -65,6 +123,16 @@ export const tagPageQuery = graphql`
           }
           frontmatter {
             title
+            tags
+            listed
+            featuredimage {
+              childImageSharp {
+                gatsbyImageData(
+                  quality: 100
+                  layout: CONSTRAINED
+                )
+              }
+            }
           }
         }
       }
