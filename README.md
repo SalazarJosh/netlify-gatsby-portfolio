@@ -14,7 +14,7 @@ This website uses:
 - [Netlify Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms#readme)
 - [Next.js](https://nextjs.org/)
 
-It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
+It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for CI/CD, and CDN distribution.
 
 ## Notes
 Though I can do development work, my speciality lies in design. As such, my website is built with a design-first approach. I started the design in Figma (link coming soon) before building.
