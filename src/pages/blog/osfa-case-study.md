@@ -75,3 +75,7 @@ We ran through several iterations of user feedback sessions before we started wr
 
 ![User flow map showing processes input and status messages](/img/osfa7.png)
 <small>Above: Message and action widgets on student homepage</small>
+
+***
+
+**If you enjoyed this and want to see more UX work, [view all blog posts by UX tag](https://joshuasalazar.net/tags/ux/).**
