@@ -80,3 +80,7 @@ To ensure that content editors were creating and adding components that all look
 ## Final Thoughts
 
 The initial ask from the college was to add more content to their already cumbersome page. We took this as an opportunity to reinvent their web space and implement a new, simpler visual design.
+
+***
+
+**If you enjoyed this and want to see more UX work, [view all blog posts by UX tag](https://joshuasalazar.net/tags/ux/).**
