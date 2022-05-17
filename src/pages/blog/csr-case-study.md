@@ -20,7 +20,7 @@ To get to the root of these problems, we conducted user feedback sessions from m
 
 Traditionally, students had to sign up for courses by browsing a printed catalog of courses available for the semester. This was a very large catalog and any updates to the courses after the catalog was printed would not be reflected. To say the least, it was a very cumbersome process. 
 
-Prior to joining the project there was an application for searching and registering for courses already in place. Our goal was to simplify that interface through the lens of UX case studies.
+Prior to joining the project there was an application for searching and registering for courses already in place. Greanted, it was not developed with the end user in mind. It was simple form-based application that still relied on the student to use the printed book to find course information. Our goal was to digitize and modernize the entire experience and optimize the interface through the use of UX case studies.
 
 
 ## Issue #1
@@ -31,7 +31,7 @@ To stem off this issue, students were also unable to plan for courses. Instead o
 We created a "My Course Week" interface that displayed blocks of courses and the times for which they ran. It's similar to the Google Calendar interface or Microsoft Office interface many of us use today. We also color coded and created unique symbols to represent the current status of the course (Registered, Planned, Waitlisted, Etc.). This allowed the user to quickly build out their schedule, even before registration opened, and get back to the important parts of being a student.
 
 ## Issue #2
-This was an update we had actually created after the application released. We continued to run usability tests and we found out that students were often overwhelmed with the amount of user interface options that were immediately available. We tried our best to mitigate this by putting the most immediate and actionable items first, but through our attempt to also show how all of the pieces were working together within a single interface, we also added a degree of complexity.
+This was an update we had actually created after the application released. We continued to run usability tests and we found students were often overwhelmed with the amount of user interface options that were immediately available. We tried our best to mitigate this by putting the most immediate and actionable items first, but through our attempt to also show how all of the pieces of the application were working together within a single interface, we also added a degree of complexity.
 
 To help guide the user on which actions to take first, we built a simple 6-step tour of the interface. This tour showed the various areas of the interface and what each area was for. For example, we found that users were getting confused on the difference between the "My Courses" section and the "My Course Week" section. This tour explained the difference between the two sections and the intended actions to be completed in each area.
 
@@ -56,7 +56,52 @@ Very little course information was available as part of the old online tool. Aft
 ## Issue #4
 Students had to log in in order to view courses. If a prospective or incoming student wanted to browse for or plan for courses, they would not be able to. To help these students, we created a public facing interface that allowed the user to search and plan for courses. We saved all this information locally so the user could quickly apply all of their choices to their authenticated profile.
 
+There are a few statuses that we noted that we thought were important to consider for both of these processes (anonymous user and registered user). See Issue 5 below to hear more about this.
+
 ![several sticky notes of varying color grouped on large pieces of paper](/img/csr4.jpg)
+
+## Issue #5
+There were no status updates presented to the user at all. If a student had anything wrong with their account (hold on the account, not admitted, etc.) they simply wouldn't know until their course registration was submitted. 
+
+We spent lots of time working with the Registrar's office to identify and understand all of the possible statuses that could exist with a student's account. We then found the best place to integrate those statuses throughout the entire student's experience for this application. For example, if the student had a hold on their account, we want to notify them immediately so we add it to their alerts window. If they didn't acknowledge that alery before viewing courses, we bring that alert up to ensure they know about the hold.
+
+<div class="columns is-mobile widealign">
+<div class="column is-8">
+
+![User flow map showing processes input and status messages](/img/csr-status-1.png)
+
+</div>
+<div class="column is-4">
+
+![User flow map showing processes input and status messages](/img/csr-settings.png)
+
+</div>
+</div>
+
+
+## Issue #6
+
+Students had no idea where to start when looking for classes. I don't mean they didn't know where to go within the interface, that was pretty clear. Instead, they were uncertain what courses to search for. For example, if a Graphic Design student was just starting their third year, they might have an understanding of requirements and pre requisites, but a newer student had none of this information available to them within this interface.
+
+We didn't want the user to focus too much on degree requirements within this interface. The application already had a lot going on in the interface and we wanted to keep the scope to registering and searching for courses.
+
+We already had dedicated applications that guided the student through these processes. If the student had previously used those tools (My Academic Plan, or Degree Progess) we had information available to us that could help the user start their search and registraiton process by integrating the two applications and pull any courses they had planned for the selected semester to populate their planned course pool with their selected courses.
+
+<div class="columns is-mobile widealign">
+<div class="column is-2">
+
+
+</div>
+<div class="column is-8">
+
+![User flow map showing processes input and status messages](/img/csr-planned-courses.png)
+
+</div>
+<div class="column is-2">
+
+
+</div>
+</div>
 
 ## The Design Phase
 Now that we had an idea of all the issues with the legacy interface, it was time to get started on a new interface. This is, by far, one of the most complex user interactions I've ever had to design for. So much is happening at once and there's a lot of information that the user can dig into. We had a find a way to make all this information available without overwhelming the user.
