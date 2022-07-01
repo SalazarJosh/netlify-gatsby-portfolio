@@ -17,9 +17,9 @@ This website uses:
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for CI/CD, and CDN distribution.
 
 ## Notes
-Though I can do development work, my speciality lies in design. As such, my website is built with a design-first approach. I started the design in Figma (link coming soon) before building.
+Though I can do development work, my speciality lies in design. As such, my website is built with a design-first approach. I started the design in Figma before building.
 
-The theme of the website is low-poly. It acts as an homage to my background in 3D and game design and I think it works well for my code/design personal brand. Every blog post has a custom 3D rendered designed in Blender for the feature image. I try to keep the low-poly aesthetic for those while also bring bold and vivid color.
+The theme of the website is low-poly. It acts as an homage to my background in 3D and game design and I think it works well for my code/design personal brand. Every blog post has a custom 3D rendered designed in Blender for the feature image.
 
 ## Prerequisites
 
