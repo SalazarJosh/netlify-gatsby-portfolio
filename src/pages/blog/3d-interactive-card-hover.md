@@ -14,11 +14,147 @@ tags:
 ---
 
 <style>
-  pre{background-color: #eee; padding: 15px; margin: 1.875rem 0; overflow-x: scroll; }
-  code{white-space: pre !important;}
-  .margin-50{
-    margin: 50px 0;
-  }
+ /*
+ * Synthwave '84 Theme originally by Robb Owen [@Robb0wen] for Visual Studio Code
+ * Demo: https://marc.dev/demo/prism-synthwave84
+ *
+ * Ported for PrismJS by Marc Backes [@themarcba]
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #fba7dc;
+	text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background-color: transparent !important;
+	background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: 2px 3px;
+	border-radius: .3em;
+	white-space: normal;
+  font-size: .95rem;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8e8e8e;
+}
+
+.token.punctuation {
+	color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.number,
+.token.unit,
+.token.hexcode,
+.token.deleted {
+	color: #e2777a;
+}
+
+.token.property,
+.token.selector {
+	color: #72f1b8;
+	text-shadow: 0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475;
+}
+
+.token.function-name {
+	color: #6196cc;
+}
+
+.token.boolean,
+.token.selector .token.id,
+.token.function {
+	color: #fdfdfd;
+	text-shadow: 0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975;
+}
+
+.token.class-name {
+	color: #fff5f6;
+	text-shadow: 0 0 2px #000, 0 0 10px #fc1f2c75, 0 0 5px #fc1f2c75, 0 0 25px #fc1f2c75;
+}
+
+.token.constant,
+.token.symbol {
+	color: #f92aad;
+	text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3;
+}
+
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.selector .token.class,
+.token.builtin {
+	color: #f4eee4;
+	text-shadow: 0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #f87c32;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
 </style>
 
 The <a href="https://codepen.io/joshsalazar/details/GROEmRj">3D Interactive Card Hover Pen</a> is, by far, my most popular Pen on CodePen. I wanted to take this time to share how I created this interactive experience.
@@ -59,7 +195,7 @@ HTML:
 </div>
 ```
 
-```CSS
+```css
 .card {
   backdrop-filter: blur(5px);
   min-width: 35vh;
@@ -77,7 +213,7 @@ I defined the card width on the ```.card``` class with ```min-width: 35vh;```. U
 ### Setting up CSS Grid
 The ```.wrapper``` class is the wrapper for our grid. I'm using the ```grid-template-columns``` property and setting each of the three columns to ```1fr```. I'm setting the ```align-items``` and ```justify-items``` properties to center to avoid any centering hacks. Finally, I set the height of the wrapper to ```100vh``` to ensure the cards can properly vertically align in the center of the viewport.
 
-```CSS
+```css
 .wrapper{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -149,7 +285,7 @@ And here's what I have so far:
 
 For the shadow, I want something that's subtle and smooth. I'm using a ```box-shadow``` property on the ```.card``` class to get me what I'm after.
 
-```CSS
+```css
 .card{
   ...
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.051),
@@ -209,7 +345,7 @@ Each line of the ```box-shadow``` property is another box-shadow. So I'm creatin
 
 You may have noticed I already added the ```glare-container``` and ```glare``` classes as children to the cards in the HTML.
 
-```CSS
+```css
 .glare-container {
   width: 100%;
   height: 100%;
@@ -242,7 +378,7 @@ Now we get to the fun JavaScript portion. I'm changing the CSS when the user mou
 
 Since all interaction is dependent on the position of the mouse within the card, I need to get the user's mouse position within the bounds of the card.
 
-```JavaScript
+```javascript
 $(".card").mousemove(function (e) {
   var rect = e.target.getBoundingClientRect();
   var x = e.clientX - rect.left; //width of the card.
