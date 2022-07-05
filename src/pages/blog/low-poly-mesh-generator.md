@@ -10,6 +10,150 @@ tags:
   - JavaScript
   - Dev Blog
 ---
+<style>
+ /*
+ * Synthwave '84 Theme originally by Robb Owen [@Robb0wen] for Visual Studio Code
+ * Demo: https://marc.dev/demo/prism-synthwave84
+ *
+ * Ported for PrismJS by Marc Backes [@themarcba]
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #fba7dc;
+	text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background-color: transparent !important;
+	background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: 2px 3px;
+	border-radius: .3em;
+	white-space: normal;
+  font-size: .95rem;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8e8e8e;
+}
+
+.token.punctuation {
+	color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.number,
+.token.unit,
+.token.hexcode,
+.token.deleted {
+	color: #e2777a;
+}
+
+.token.property,
+.token.selector {
+	color: #72f1b8;
+	text-shadow: 0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475;
+}
+
+.token.function-name {
+	color: #6196cc;
+}
+
+.token.boolean,
+.token.selector .token.id,
+.token.function {
+	color: #fdfdfd;
+	text-shadow: 0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975;
+}
+
+.token.class-name {
+	color: #fff5f6;
+	text-shadow: 0 0 2px #000, 0 0 10px #fc1f2c75, 0 0 5px #fc1f2c75, 0 0 25px #fc1f2c75;
+}
+
+.token.constant,
+.token.symbol {
+	color: #f92aad;
+	text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3;
+}
+
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.selector .token.class,
+.token.builtin {
+	color: #f4eee4;
+	text-shadow: 0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #f87c32;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
+</style>
+
 If it's not obvious, the general theme of my homepage and website is that of a low-poly aesthetic. Long before I started in web I spent a lot of time in 3D modeling and game design. The low-poly aesthetic of the homepage is an homage to those times. Though I still dabble with 3D and game design, my main focus has shifted to web. I believe that early experience in 3D design made picking up Three.js a bit easier.
 
 I made this low-poly mesh generator at a time where I was also exploring new forms of generative art. The final product here will not have static color gradients like my homepage, but dynamic color bands with multiple variables that create truly unique results each time to create a mesh.
@@ -56,27 +200,29 @@ The first thing I do is create a radial gradient in the [context of the canvas](
 
 The first layer of randomization is the starting and ending x-values of the gradient band.
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>var grd = ctx.createRadialGradient(
+```javascript
+var grd = ctx.createRadialGradient(
   THREE.Math.randFloat(-halfWidth / 2, halfWidth / 2) + halfWidth,
   height,
   THREE.Math.randFloat(5, 100),
   halfWidth,
   height,
   gradientRange
-);</code></pre>
+);
+```
 
 The second layer of randomization is selecting the number of gradient bands. I found 2-3 gradient bands to look the best. Given I'm creating truly random colors, more colors tend to get muddy when running together.
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>var numOfGradientBands = Math.floor(THREE.Math.randFloat(2, 4));</code></pre>
+```javascript
+var numOfGradientBands = Math.floor(THREE.Math.randFloat(2, 4));
+```
 
 The final layer of randomization is selecting the colors. This could be cleaned up by creating a function for the color generation instead of running through it for each color.
 
 The [addColorStop() method](https://developer.mozilla.org/en-US/docs/Web/API/CanvasGradient/addColorStop) is taking two parameters; the offset and the color. For the most optimal results, I manually select the offset for each color band.
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>var firstColorR = Math.floor(Math.random() * 255);
+```javascript
+var firstColorR = Math.floor(Math.random() * 255);
 var firstColorG = Math.floor(Math.random() * 255);
 var firstColorB = Math.floor(Math.random() * 255);
 
@@ -103,7 +249,8 @@ grd.addColorStop(
     Math.floor(Math.random() * 255) +
     ", " +
     Math.floor(Math.random() * 255)
-);</code></pre>
+);
+```
 
 And there I have our gradient applied to a canvas. I'll use this canvas as a reference to apply the color to my low-poly mesh later.
 
@@ -113,8 +260,8 @@ The mesh is a [BufferGeometry](https://threejs.org/docs/#api/en/core/BufferGeome
 
 The final level of randomization for this project is the position of those 1024 points. The variance variable below determines the randomized location of each point. Anything larger than 10 starts to give unexpected results for the next step.
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>var variance = THREE.Math.randFloat(1, 10);
+```javascript
+var variance = THREE.Math.randFloat(1, 10);
 // generate 1024 verticies (32 * 32)
 for (let i = 1; i < 33; i++) {
   for (let j = 1; j < 33; j++) {
@@ -126,7 +273,8 @@ for (let i = 1; i < 33; i++) {
   }
 }
 
-var geometry1 = new THREE.BufferGeometry().setFromPoints(points3d);</code></pre>
+var geometry1 = new THREE.BufferGeometry().setFromPoints(points3d);
+```
 
 Unfortunately, there isn't much to see at the end here. The points are applied to the mesh but they currently don't have faces.
 
@@ -134,8 +282,8 @@ Unfortunately, there isn't much to see at the end here. The points are applied t
 
 To triangulate the faces, I found this [Delaunay triangulation script](https://unpkg.com/delaunator@3.0.2/delaunator.js). It takes the point's x and y values, and returns a 2D array. The first dimension of the array is the array of faces. The second dimension consists of the three points for each face. This array is passed back to three.js and the normals recomputed.
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>var indexDelaunay = Delaunator.from(
+```javascript
+var indexDelaunay = Delaunator.from(
   points3d.map((v) => {
     return [v.x, v.z];
   })
@@ -157,7 +305,8 @@ const count = geometry1.attributes.position.count;
 geometry1.setAttribute(
   "color",
   new THREE.BufferAttribute(new Float32Array(count * 3), 3)
-);</code></pre>
+);
+```
 
 ### Coloring the points of the mesh
 
@@ -165,10 +314,11 @@ Now I have a mesh with triangulated faces from a set of randomized points. The n
 
 Remember that canvas with the gradient from earlier? I sample that canvas to map the RGP pixel data to a 32x32 2d array. 32x32 is also the number of points on the mesh so I pass the color array to each point on the mesh.
 
-var pixels = []
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>// Map the pixel data (RGB) to an array
+
+```javascript
+var pixels = []
+// Map the pixel data (RGB) to an array
 for (var a = 1; a < 33; a++) {
   for (var b = 1; b < 33; b++) {
     var pixel = ctx.getImageData(
@@ -207,12 +357,12 @@ for (let i = 0; i < count; i++) {
   color.setRGB(pixels[i][0] / 255, pixels[i][1] / 255, pixels[i][2] / 255);
   colors1.setXYZ(i, color.r, color.g, color.b);
 }
-</code></pre>
+```
 
 To apply the colors to the points on the mesh, the vertexColors value of the mesh has to be set to true.
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>var mesh = new THREE.Mesh
+```javascript
+var mesh = new THREE.Mesh
   geometry1,
   new THREE.MeshPhongMaterial({
     color: 0xffffff,
@@ -221,7 +371,8 @@ To apply the colors to the points on the mesh, the vertexColors value of the mes
     flatShading: true,
     shininess: 30
   })
-);</code></pre>
+);
+```
 
 And here are the results:
 
@@ -243,15 +394,16 @@ To get that final result I was going for, I wanted to get a shiny material appli
 
 The wireframe mesh is simply a duplicate of the gradient mesh using [LineSegments](https://threejs.org/docs/#api/en/objects/LineSegments).
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>const wireframeGeometry = new THREE.WireframeGeometry(geometry1);
+```javascript
+const wireframeGeometry = new THREE.WireframeGeometry(geometry1);
 const wireframeMaterial = new THREE.MeshBasicMaterial({ color: 0x111111 });
 const wireframe = new THREE.LineSegments(
   wireframeGeometry,
   wireframeMaterial
 );
 mesh.add(wireframe);
-wireframe.position.y = 2;</code></pre>
+wireframe.position.y = 2;
+```
 
 ![low poly mesh with overlaid wireframe](/img/1631404891549.png)
 
@@ -261,8 +413,8 @@ For lighting, I removed the light that illuminated the scene and added a small p
 
 Finally, I added some shininess to the material of the base mesh. The material is a [MeshPhongMaterial](https://threejs.org/docs/?q=phong#api/en/materials/MeshPhongMaterial) with a shininess value of 30.
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>var mesh = new THREE.Mesh(
+```javascript
+var mesh = new THREE.Mesh(
   geometry1,
   new THREE.MeshPhongMaterial({
     color: 0xffffff,
@@ -271,7 +423,8 @@ Finally, I added some shininess to the material of the base mesh. The material i
     flatShading: true,
     shininess: 30
   })
-);</code></pre>
+);
+```
 
 <h2 id="execution-summary">Execution Summary</h2>
 

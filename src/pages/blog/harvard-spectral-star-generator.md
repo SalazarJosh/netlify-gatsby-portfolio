@@ -11,6 +11,149 @@ tags:
   - CSS
   - Dev Blog
 ---
+<style>
+ /*
+ * Synthwave '84 Theme originally by Robb Owen [@Robb0wen] for Visual Studio Code
+ * Demo: https://marc.dev/demo/prism-synthwave84
+ *
+ * Ported for PrismJS by Marc Backes [@themarcba]
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #fba7dc;
+	text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background-color: transparent !important;
+	background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: 2px 3px;
+	border-radius: .3em;
+	white-space: normal;
+  font-size: .95rem;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8e8e8e;
+}
+
+.token.punctuation {
+	color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.number,
+.token.unit,
+.token.hexcode,
+.token.deleted {
+	color: #e2777a;
+}
+
+.token.property,
+.token.selector {
+	color: #72f1b8;
+	text-shadow: 0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475;
+}
+
+.token.function-name {
+	color: #6196cc;
+}
+
+.token.boolean,
+.token.selector .token.id,
+.token.function {
+	color: #fdfdfd;
+	text-shadow: 0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975;
+}
+
+.token.class-name {
+	color: #fff5f6;
+	text-shadow: 0 0 2px #000, 0 0 10px #fc1f2c75, 0 0 5px #fc1f2c75, 0 0 25px #fc1f2c75;
+}
+
+.token.constant,
+.token.symbol {
+	color: #f92aad;
+	text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3;
+}
+
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.selector .token.class,
+.token.builtin {
+	color: #f4eee4;
+	text-shadow: 0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #f87c32;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
+</style>
 
 I love space! Well, I love the idea of space. It's a very cold and inhospitable place after all. Before my days of web I started in game design and development. Many of my projects were space themed. Along the way I built a few galaxy generation systems. Though these were always built in C#, the concepts transferred over to JavaScript pretty easily.
 
@@ -134,8 +277,8 @@ Each star will also have descriptor text for each property. I'll use this descri
 
 All of this data, after it's generated, will be passed back to a GenerateGalaxy() function I have yet to create. Here's what the function looks like so far.
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>function GenerateStar() {
+```javascript
+function GenerateStar() {
  var type;
  var color;
  var cssColor;
@@ -165,23 +308,25 @@ All of this data, after it's generated, will be passed back to a GenerateGalaxy(
    radiusDesc,
    lumiDesc
  ]; 
-}</code></pre>
+}
+```
 
 Now I'll use the "fraction of all main sequence stars" from the table above to determine what star to generate. The above chart has numbers in the hundred thousanths, but I'll round off to the hundreths. First I'll need to select a random number between .01 and 100. Instead of dealing with decimals, I'll just choose a random number between 1 and 10,000
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>...
- var massDesc;
- var radiusDesc;
- var lumiDesc;
- 
- <strong>var typePercent = Math.floor(Math.random() * 10000);</strong>
- 
- return [
-   type,
-   color,
-   cssColor,
-...</code></pre>
+```javascript
+...
+var massDesc;
+var radiusDesc;
+var lumiDesc;
+
+var typePercent = Math.floor(Math.random() * 10000);>
+
+return [
+  type,
+  color,
+  cssColor,
+...
+```
 
 Now I use a series of if else statements to populate the star variables depending on the value of typePercent.
 
@@ -191,12 +336,12 @@ The first if is checking to see if the value is 1. Since O-type stars have a ~0.
 
 The temperature, mass, radius, and luminosity follow the same Math.random pattern using values from the chart above.
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>...
+```javascript
+...
 var lumiDesc;
 
 var typePercent = Math.floor(Math.random() * 10000);
-<strong>if (typePercent == 1) {
+if (typePercent == 1) {
    type = "O";
    color = "Blue";
    cssColor = "blue";
@@ -204,23 +349,24 @@ var typePercent = Math.floor(Math.random() * 10000);
    mass = (Math.floor(Math.random() * (2300 - 1600)) + 1600) / 100;
    radius = (Math.floor(Math.random() * (1000 - 660)) + 660) / 100;
    luminosity = (Math.floor(Math.random() * (5000000 - 3000000)) + 3000000) / 100;
- }</strong>
+ }
  
  return [
    type,
    color,
    cssColor,
-...</code></pre>
+...
+```
 
 Now comes the description text. I want the final result to be a bit educational and fun. Instead of just showing the final numbers, I'd like there to be another level of exploration for each variable to learn more about what it means. For this, I'll do a bit of googling to help me explain each value and get a bit creative with my writing.
 
 Here's the series of description strings for the O-type star:
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>...
+```javascript
+...
    radius = (Math.floor(Math.random() * (1000 - 660)) + 660) / 100;
    luminosity = (Math.floor(Math.random() * (5000000 - 3000000)) + 3000000) / 100;
- <strong>
+
    typeDesc =
       "Wow! You found an O-type star. O-type stars are very hot and extremely luminous, with most of their radiated output in the ultraviolet range. These are the rarest of all main-sequence stars. About 1 in 3,000,000 (0.00003%) of the main-sequence stars in the solar neighborhood are O-type stars. Some of the most massive stars lie within this spectral class. O-type stars frequently have complicated surroundings that make measurement of their spectra difficult.";
       
@@ -248,13 +394,14 @@ Here's the series of description strings for the O-type star:
       
     lumiDesc =
       "Absolute magnitude is a measure of the luminosity of a celestial object, on a logarithmic astronomical magnitude scale. An object's absolute magnitude is defined to be equal to the apparent magnitude that the object would have if it were viewed from a distance of exactly 10 parsecs (32.6 light-years), with no extinction (or dimming) of its light due to absorption by interstellar dust particles. By hypothetically placing all objects at a standard reference distance from the observer, their luminosities can be directly compared on a magnitude scale.";
-}</strong>
+}
  
  return [
    type,
    color,
    cssColor,
-...</code></pre>
+...
+```
 
 This really took the most time. Building strings in JavaScript is always a chore. At the very end of putting this all together, I simply return all the initial star variables.
 
@@ -266,8 +413,8 @@ Then I'll use a simple for loop to generate each star. This is where most of the
 
 Great! the star generator is built. But I'm not currently doing anything with that function. Now I need to set up a new function to contain all the stars. I'll call this function GenerateGalaxy() because that seems to fit.
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>var numOfStars = 100;
+```javascript
+var numOfStars = 100;
 
 var stars = [];
 
@@ -296,14 +443,15 @@ function GenerateGalaxy() {
 
     stars.push(star);
   }
-}</pre></code>  
+}
+```
 
 ## 3. Randomly select a point within the user's view
 
 Picking a point within the user's viewport is as simple as selecting a random pixel value based on the window width and window height. I'll use jQuery to reference $(window). This will come after 
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>...
+```javascript
+...
     };
 
     stars.push(star);
@@ -311,7 +459,8 @@ Picking a point within the user's viewport is as simple as selecting a random pi
     <strong>var posLeft = Math.floor(Math.random() * $(window).width() - 3);
     var posTop = Math.floor(Math.random() * $(window).height() - 3);</strong>
   }
-}</pre></code> 
+}
+``` 
 
 ## 4. Spawn the proper div element for the star
  
@@ -319,57 +468,58 @@ Picking a point within the user's viewport is as simple as selecting a random pi
  
  The stars will have a color that closely matches that within the table above. I'll use a box-shadow to give the stars a bit of glow.
  
- <pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
- <code>.star {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    position: absolute;
+```css
+.star {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
 
-    &:hover {
-      cursor: pointer;
-    }
+  &:hover {
+    cursor: pointer;
+  }
 
-    &.blue {
-      background-color: #00f;
-      box-shadow: 0 0 20px #589bff, 0 0 20px #afc8ee;
-    }
+  &.blue {
+    background-color: #00f;
+    box-shadow: 0 0 20px #589bff, 0 0 20px #afc8ee;
+  }
 
-    &.blueWhite {
-      background-color: #55f;
-      box-shadow: 0 0 20px #70aeff, 0 0 40px #b7d6ff;
-    }
+  &.blueWhite {
+    background-color: #55f;
+    box-shadow: 0 0 20px #70aeff, 0 0 40px #b7d6ff;
+  }
 
-    &.white {
-      background-color: #fff;
-      box-shadow: 0 0 20px #accdff, 0 0 40px #dfecff;
-    }
+  &.white {
+    background-color: #fff;
+    box-shadow: 0 0 20px #accdff, 0 0 40px #dfecff;
+  }
 
-    &.yellowWhite {
-      background-color: #fff585;
-      box-shadow: 0 0 20px #f7f5ff, 0 0 40px #f7f5ff;
-    }
+  &.yellowWhite {
+    background-color: #fff585;
+    box-shadow: 0 0 20px #f7f5ff, 0 0 40px #f7f5ff;
+  }
 
-    &.yellow {
-      background-color: #ff0;
-      box-shadow: 0 0 20px #fff0d9, 0 0 50px #fffcf7;
-    }
+  &.yellow {
+    background-color: #ff0;
+    box-shadow: 0 0 20px #fff0d9, 0 0 50px #fffcf7;
+  }
 
-    &.yellowOrange {
-      background-color: #ffae00;
-      box-shadow: 0 0 20px #ffdb3a, 0 0 50px #feeda1;
-    }
+  &.yellowOrange {
+    background-color: #ffae00;
+    box-shadow: 0 0 20px #ffdb3a, 0 0 50px #feeda1;
+  }
 
-    &.orangeRed {
-      background-color: #ff5a00;
-      box-shadow: 0 0 20px #fa8a4a, 0 0 50px #b9a018;
-    }
-}</code></pre>
+  &.orangeRed {
+    background-color: #ff5a00;
+    box-shadow: 0 0 20px #fa8a4a, 0 0 50px #b9a018;
+  }
+}
+```
 
 Now, back into JavaScript it's time to build and spawn the div elements. To close out the GenerateGalaxy() function:
 
-<pre style="background-color: #eee; padding: 15px; margin: 1.875rem 0;">
-<code>$(".frame").append(
+```javascript
+$(".frame").append(
   &lt;div class='star " +
     stars[i].cssColor +
     "' id='" +
@@ -380,8 +530,7 @@ Now, back into JavaScript it's time to build and spawn the div elements. To clos
     posTop +
     "px;' onClick='OpenPanel(this.id)'></div>"
 );
-
-</code></pre>
+```
 
 Now all I need to do is call the GenerateGalaxy() function and I should have a star scape!
 
