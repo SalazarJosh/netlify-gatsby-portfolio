@@ -577,3 +577,33 @@ $menu-label-color: $white-ter
 .card-2 
   left: calc(20vw - calc(35vh / 2))
   background-color: rgba(255, 0, 0, 0.23)
+
+
+//BULMA OVERWRITES (these classes, in Bulma, break the syntax highlighting classes)
+.tag:not(body) 
+    align-items: inherit
+    background-color: transparent
+    border-radius: none
+    color: transparent
+    display: inherit
+    font-size: inherit
+    height: inherit
+    justify-content: normal
+    line-height: inherit
+    padding-left: revert
+    padding-right: revert
+    white-space: nowrap
+
+.number
+  align-items: initial
+  background-color: transparent
+  border-radius: 0
+  display: initial
+  font-size: initial
+  height: initial
+  justify-content: initial
+  margin-right: initial
+  min-width: initial
+  padding: initial
+  text-align: initial
+  vertical-align: initial
