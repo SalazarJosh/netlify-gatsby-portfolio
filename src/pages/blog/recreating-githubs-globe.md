@@ -195,8 +195,9 @@ And here are the results ...
 The atmosphere was probably the hardest part to recreate. On GitHub's post they mentioned using a slightly offset sphere with a custom shader to get the atmospheric effect. I've never created a custom shader in three.js so it took some time to figure that out and get it looking right.
 
 #### Atmosphere shader
-```javascriptconst 
-atmosphereShader = {
+
+```javascript
+const atmosphereShader = {
   'atmosphere': {
     uniforms: {},
     vertexShader: [
