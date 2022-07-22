@@ -3,7 +3,7 @@
 **Netlify Deploy Status:**
 [![Netlify Status](https://api.netlify.com/api/v1/badges/baad14b3-b0f7-4364-a485-ab30fce41380/deploy-status)](https://app.netlify.com/sites/gatsby4portfolio/deploys)
 
-This repo is my personal portfolio build with [Gatsby](https://www.gatsbyjs.org/) and deployed with [Netlify CMS](https://www.netlifycms.org): 
+This repo is my personal portfolio built with [Gatsby](https://www.gatsbyjs.org/) and deployed with [Netlify CMS](https://www.netlifycms.org): 
 
 **[View Website](https://joshuasalazar.net/)**.
 
