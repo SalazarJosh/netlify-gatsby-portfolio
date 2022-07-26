@@ -1,25 +1,25 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Delaunator from "delaunator";
 import * as THREE from "three";
 
 class HomepageHeader extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.state ={
+    this.state = {
       selectedGradient: 0
     }
   }
 
-  toggleSelectedGradient(clickedGradient){
+  toggleSelectedGradient(clickedGradient) {
     this.setState({
       selectedGradient: clickedGradient
     })
     this.init(clickedGradient);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     var activeAnimation;
-    activeAnimation != null && cancelAnimationFrame( activeAnimation );
+    activeAnimation != null && cancelAnimationFrame(activeAnimation);
     let camera,
       scene,
       renderer;
@@ -39,7 +39,7 @@ class HomepageHeader extends Component {
 
     this.init = (clickedGradient) => {
       var headerCanvas = document.getElementById("headerCanvas");
-      if(headerCanvas != null){
+      if (headerCanvas != null) {
         headerCanvas.remove();
       }
       // SETUP
@@ -57,7 +57,7 @@ class HomepageHeader extends Component {
       light.position.set(0, 0, 1);
       scene.add(light);
 
-      mouseLight.position.set(-50, 10, mouseLightHeight);
+      mouseLight.position.set(Math.floor(Math.random() * 100) - 50, 10, mouseLightHeight);
       scene.add(mouseLight);
 
       // point light helper
@@ -97,12 +97,12 @@ class HomepageHeader extends Component {
       //document.documentElement.style.setProperty("--brandColor", "rgba(" + firstColorR + "," + firstColorG + ", " + firstColorB + ", 1)");
 
       // Create a set of  gradients for the fill
-      var gradients = [[73,50,64, 255, 0, 153], [51, 51, 51, 221, 24, 24], [75,19,79,201,75,75], [0,0,70,28,181,224], [15,52,67,52,232,158], [60,16,83,173,83,137]];
+      var gradients = [[73, 50, 64, 255, 0, 153], [51, 51, 51, 221, 24, 24], [75, 19, 79, 201, 75, 75], [0, 0, 70, 28, 181, 224], [15, 52, 67, 52, 232, 158], [60, 16, 83, 173, 83, 137]];
 
-      if(clickedGradient !== undefined){
+      if (clickedGradient !== undefined) {
         selectedGradient = clickedGradient;
       }
-      else{
+      else {
         selectedGradient = Math.floor(Math.random() * gradients.length);
       }
       grd.addColorStop(.25, "rgb(" + gradients[selectedGradient][0] + "," + gradients[selectedGradient][1] + ", " + gradients[selectedGradient][2]);
@@ -157,8 +157,8 @@ class HomepageHeader extends Component {
         return height * camera.aspect;
       };
 
-      var visibleWidth = visibleWidthAtZDepth( camera.position.z, camera);
-      if(visibleWidth < 800){
+      var visibleWidth = visibleWidthAtZDepth(camera.position.z, camera);
+      if (visibleWidth < 800) {
         visibleWidth = 500
       }
 
@@ -216,29 +216,29 @@ class HomepageHeader extends Component {
       texture.wrapT = THREE.RepeatWrapping;
       texture.repeat.set(100, 100);
 
-      var mesh = new THREE.Mesh(geometry1, new THREE.MeshPhongMaterial({color: 0xffffff, opacity: 1, vertexColors: true, flatShading: true, shininess: 30}));
+      var mesh = new THREE.Mesh(geometry1, new THREE.MeshPhongMaterial({ color: 0xffffff, opacity: 1, vertexColors: true, flatShading: true, shininess: 30 }));
       mesh.rotation.x = Math.PI / 2;
       mesh.position.y = 200;
       mesh.position.x -= visibleWidth / 2.5;
-      mesh.scale.set(.8,.8,.8);
+      mesh.scale.set(.8, .8, .8);
       scene.add(mesh);
 
       const noisePlaneGeom = new THREE.PlaneGeometry(1000, 1000);
-      const noisePlaneMat = new THREE.MeshBasicMaterial({color: 0xffffff, transparent: true, map: texture, opacity: .5});
+      const noisePlaneMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, map: texture, opacity: .5 });
       const noisePlane = new THREE.Mesh(noisePlaneGeom, noisePlaneMat);
       noisePlane.position.z = 8;
       scene.add(noisePlane);
 
-      var wireMesh = new THREE.Mesh(geometry1, new THREE.MeshBasicMaterial({color: 0xeeeeee, opacity: .2, transparent: true, wireframe: true, shininess: 0}));
+      var wireMesh = new THREE.Mesh(geometry1, new THREE.MeshBasicMaterial({ color: 0xeeeeee, opacity: .2, transparent: true, wireframe: true, shininess: 0 }));
       wireMesh.rotation.x = Math.PI / 2;
       wireMesh.position.z = 2;
       wireMesh.position.y = 200;
       wireMesh.position.x -= visibleWidth / 2.5;
-      wireMesh.scale.set(.8,.8,.8);
+      wireMesh.scale.set(.8, .8, .8);
       scene.add(wireMesh);
 
 
-      renderer = new THREE.WebGLRenderer({antialias: true});
+      renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(headerContainer.offsetWidth, headerContainer.offsetHeight);
       var canvas = renderer.domElement;
@@ -304,10 +304,10 @@ class HomepageHeader extends Component {
   render() {
     return (
       <>
-        <div className = "headerContainer gs_reveal" id = "headerContainer" >
+        <div className="headerContainer gs_reveal" id="headerContainer" >
           <div className="headerName">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 42.49 10" xmlSpace="preserve">
+            <svg className="salazarSVG" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 42.49 10" xmlSpace="preserve">
               <g>
                 <path d="M2.8,10c-0.61,0-1.12-0.11-1.52-0.32c-0.41-0.22-0.72-0.55-0.92-1C0.14,8.22,0.02,7.63,0,6.91l1.84-0.28
                   c0.01,0.42,0.05,0.75,0.11,1.01C2.02,7.9,2.11,8.08,2.24,8.2c0.12,0.11,0.27,0.17,0.45,0.17c0.22,0,0.37-0.08,0.44-0.23
@@ -317,11 +317,11 @@ class HomepageHeader extends Component {
                   C3.22,2.03,3.16,1.86,3.07,1.75C2.98,1.63,2.85,1.57,2.66,1.57c-0.2,0-0.35,0.08-0.44,0.25c-0.09,0.17-0.14,0.34-0.14,0.5
                   c0,0.36,0.09,0.65,0.26,0.88c0.17,0.23,0.4,0.47,0.68,0.71l0.8,0.71C4.25,4.99,4.61,5.4,4.9,5.86s0.44,1.02,0.44,1.69
                 c0,0.46-0.1,0.87-0.31,1.24c-0.21,0.37-0.5,0.67-0.88,0.88C3.77,9.89,3.32,10,2.8,10z"/>
-                <path d="M5.82,9.85l1.84-9.72h2.45l1.81,9.72H9.94L9.61,7.8H8.18L7.85,9.85H5.82z M8.38,6.52h1.03L8.89,2.72L8.38,6.52z"/>
-                <path d="M12.8,9.85V0.13h2.15V8.4h2.23v1.45H12.8z"/>
+                <path d="M5.82,9.85l1.84-9.72h2.45l1.81,9.72H9.94L9.61,7.8H8.18L7.85,9.85H5.82z M8.38,6.52h1.03L8.89,2.72L8.38,6.52z" />
+                <path d="M12.8,9.85V0.13h2.15V8.4h2.23v1.45H12.8z" />
                 <path d="M17.65,9.85l1.84-9.72h2.45l1.81,9.72h-1.98L21.44,7.8h-1.43l-0.34,2.05H17.65z M20.21,6.52h1.03l-0.52-3.79L20.21,6.52z"
                 />
-                <path d="M24.36,9.85v-1.3l2.38-6.97h-2.27V0.13h4.38v1.21L26.44,8.4h2.44v1.45H24.36z"/>
+                <path d="M24.36,9.85v-1.3l2.38-6.97h-2.27V0.13h4.38v1.21L26.44,8.4h2.44v1.45H24.36z" />
                 <path d="M29.46,9.85l1.84-9.72h2.45l1.81,9.72h-1.98L33.25,7.8h-1.43l-0.34,2.05H29.46z M32.02,6.52h1.03l-0.52-3.79L32.02,6.52z"
                 />
                 <path d="M36.44,9.85V0.13h2.68c0.66,0,1.22,0.07,1.7,0.22s0.85,0.4,1.12,0.77c0.27,0.37,0.4,0.9,0.4,1.58c0,0.4-0.03,0.76-0.1,1.07
@@ -332,46 +332,48 @@ class HomepageHeader extends Component {
             </svg>
           </div>
         </div>
-        <div className="columns is-mobile gs_reveal">
-          <div className="column">
-            <div className="gradientContainer">
-              <div className="pointer gradient1" onClick={() => this.toggleSelectedGradient(0)}>
-                <div className={"gradientOverlay" + (this.state.selectedGradient === 0 ? "" : " inactiveGradient")}></div>
+        <div className="container">
+          <div className="columns is-mobile gs_reveal">
+            <div className="column">
+              <div className="gradientContainer">
+                <div className="pointer gradient1" onClick={() => this.toggleSelectedGradient(0)}>
+                  <div className={"gradientOverlay" + (this.state.selectedGradient === 0 ? "" : " inactiveGradient")}></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="column">
-            <div className="gradientContainer">
-              <div className="pointer gradient2" onClick={() => this.toggleSelectedGradient(1)}>
-                <div className={"gradientOverlay" + (this.state.selectedGradient === 1 ? "" : " inactiveGradient")}></div>
+            <div className="column">
+              <div className="gradientContainer">
+                <div className="pointer gradient2" onClick={() => this.toggleSelectedGradient(1)}>
+                  <div className={"gradientOverlay" + (this.state.selectedGradient === 1 ? "" : " inactiveGradient")}></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="column">
-            <div className="gradientContainer">
-              <div className="pointer gradient3" onClick={() => this.toggleSelectedGradient(2)}>
-                <div className={"gradientOverlay" + (this.state.selectedGradient === 2 ? "" : " inactiveGradient")}></div>
+            <div className="column">
+              <div className="gradientContainer">
+                <div className="pointer gradient3" onClick={() => this.toggleSelectedGradient(2)}>
+                  <div className={"gradientOverlay" + (this.state.selectedGradient === 2 ? "" : " inactiveGradient")}></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="column">
-            <div className="gradientContainer">
-              <div className="pointer gradient4" onClick={() => this.toggleSelectedGradient(3)}>
-                <div className={"gradientOverlay" + (this.state.selectedGradient === 3 ? "" : " inactiveGradient")}></div>
+            <div className="column">
+              <div className="gradientContainer">
+                <div className="pointer gradient4" onClick={() => this.toggleSelectedGradient(3)}>
+                  <div className={"gradientOverlay" + (this.state.selectedGradient === 3 ? "" : " inactiveGradient")}></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="column">
-            <div className="gradientContainer">
-              <div className="pointer gradient5" onClick={() => this.toggleSelectedGradient(4)}>
-                <div className={"gradientOverlay" + (this.state.selectedGradient === 4 ? "" : " inactiveGradient")}></div>
+            <div className="column">
+              <div className="gradientContainer">
+                <div className="pointer gradient5" onClick={() => this.toggleSelectedGradient(4)}>
+                  <div className={"gradientOverlay" + (this.state.selectedGradient === 4 ? "" : " inactiveGradient")}></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="column">
-            <div className="gradientContainer">
-              <div className="pointer gradient6" onClick={() => this.toggleSelectedGradient(5)}>
-                <div className={"gradientOverlay" + (this.state.selectedGradient === 5 ? "" : " inactiveGradient")}></div>
+            <div className="column">
+              <div className="gradientContainer">
+                <div className="pointer gradient6" onClick={() => this.toggleSelectedGradient(5)}>
+                  <div className={"gradientOverlay" + (this.state.selectedGradient === 5 ? "" : " inactiveGradient")}></div>
+                </div>
               </div>
             </div>
           </div>
