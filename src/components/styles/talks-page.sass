@@ -1,18 +1,19 @@
-@mixin Cerebri-Sans-Book
-  font-family: 'Cerebri', sans-serif
+@mixin Open-Sans
+  font-family: 'Open Sans', sans-serif
   letter-spacing: -0.4px
 
 @mixin Hello-Text
   font-size: clamp(1rem, calc(-0.875rem + 8.333333vw), 3.5rem)
 
 .talks-page, .tag-page
-  @include Cerebri-Sans-Book
+  @include Open-Sans
     
 .talks-page p
   color: #666666
   font-size: 1.125rem
   line-height: 1.625
   margin: 0 0 1.875rem
+  letter-spacing: 0 !important
   
 .talks-logo
   max-width: 100%
@@ -62,7 +63,7 @@
   font-size: 5rem
   line-height: calc(5rem + 5px)
   color: #ecf0f1
-  @include Cerebri-Sans-Book
+  @include Open-Sans
   
 .hello-container 
   font-weight: 600

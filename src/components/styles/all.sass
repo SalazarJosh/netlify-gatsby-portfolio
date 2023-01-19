@@ -14,21 +14,13 @@
 @font-face 
   font-family: 'Amiri'
   src: url("https://fonts.googleapis.com/css2?family=Amiri&display=swap")
-  
+
 @font-face 
-  font-family: 'Cerebri'
-  src: url("../../fonts/Cerebri/CerebriSans-Regular.woff")
-  font-weight: normal
-  font-s-yle: normal
+  font-family: 'Open Sans'
+  src: url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap")
   
-@font-face 
-  font-family: 'Cerebri'
-  src: url("../../fonts/Cerebri/CerebriSans-Bold.woff")
-  font-weight: bold
-  font-style: normal
-  
-@mixin Cerebri-Sans-Book
-  font-family: 'Cerebri', sans-serif
+@mixin Open-Sans
+  font-family: 'Open Sans', sans-serif
   letter-spacing: -0.4px
 
 body
@@ -63,8 +55,8 @@ a:hover
   font-family: 'Amiri', serif
 
 .career-desc
-  @include Cerebri-Sans-Book
-  letter-spacing: -0.4px
+  @include Open-Sans
+  letter-spacing: 0px !important
   color: #666
   font-size: 1.125rem
   
@@ -294,11 +286,11 @@ $header-hover-transition: color .3s linear
   fill: #000
 
 .page-header
-  @include Cerebri-Sans-Book
+  @include Open-Sans
   
   font-size: 5rem
   line-height: 1.1
-  font-weight: 800
+  font-weight: 700
 
 .content .taglist
   list-style: none
@@ -367,8 +359,7 @@ $header-hover-transition: color .3s linear
   margin-left: -16.666666%
   
 .navbar-item
-  @include Cerebri-Sans-Book
-    
+  font-family: 'Open Sans', sans-serif
   text-transform: uppercase
   font-size: 1rem
   font-weight: 700
@@ -453,7 +444,7 @@ $menu-label-color: $white-ter
   justify-content: center
 .view-all-posts
   font-size: 2.5rem
-  font-family: 'Cerebri', serif
+  font-family: 'Open Sans', serif
   overflow: hidden
   background: linear-gradient(to right, var(--brandColor), var(--brandColor) 50%, black 50%)
   background-clip: text
