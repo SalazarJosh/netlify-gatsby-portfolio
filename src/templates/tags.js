@@ -27,72 +27,73 @@ class TagRoute extends React.Component {
         <section className="tag-page">
           <div className="spacer-md"></div>
           <div className="container">
-            <h1 className="page-header">{tag}</h1>
-            <div className="spacer-sm"></div>
+            <section className="section">
+              <h1 className="page-header">{tag}</h1>
+              <div className="spacer-sm"></div>
 
-            <p>{tagHeader}</p>
-            <Link to="/tags/">Browse all tags</Link>
+              <p>{tagHeader}</p>
+              <Link to="/tags/">Browse all tags</Link>
 
-            <div className="spacer-sm"></div>
+              <div className="spacer-sm"></div>
 
-            <div className="columns is-multiline is-mobile">
-              {posts.map(({ node: post }) => {
-                console.log(post);
+              <div className="columns is-multiline">
+                {posts.map(({ node: post }) => {
+                  console.log(post);
 
-                if (post.frontmatter.listed) {
-                  return (
-                    <div className="column is-one-third gs_reveal" key={post.id}>
-                      <div className="port-item">
-                        <div className="blogThumnailWrapper">
+                  if (post.frontmatter.listed) {
+                    return (
+                      <div className="column is-one-third gs_reveal" key={post.id}>
+                        <div className="port-item">
+                          <div className="blogThumnailWrapper">
+                            <Link
+                              className="title has-text-primary is-size-4"
+                              to={post.fields.slug}
+                            >
+                              <PreviewCompatibleImage
+                                imageInfo={{
+                                  image: post.frontmatter.featuredimage,
+                                  alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                                  width: post.frontmatter.featuredimage.childImageSharp.gatsbyImageData.width,
+                                }}
+                              />
+                            </Link>
+                          </div>
+
+                          <div className="spacer-sm"></div>
+
+                          <div className="tagText">
+                            {post.frontmatter.tags.map((tag, index, array) => {
+                              if (array.length - 1 === index) {
+                                return (
+                                  <span key={tag + `tag`}>
+                                    {tag}
+                                  </span>
+                                )
+                              } else {
+                                return (
+                                  <span key={tag + `tag`}>
+                                    {tag}, &nbsp;
+                                  </span>
+                                )
+                              }
+                            })}
+                          </div>
                           <Link
-                            className="title has-text-primary is-size-4"
+                            className="blogTitle"
                             to={post.fields.slug}
                           >
-                            <PreviewCompatibleImage
-                              imageInfo={{
-                                image: post.frontmatter.featuredimage,
-                                alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                                width: post.frontmatter.featuredimage.childImageSharp.gatsbyImageData.width,
-                              }}
-                            />
+                            {post.frontmatter.title}
                           </Link>
                         </div>
-
                         <div className="spacer-sm"></div>
 
-                        <div className="tagText">
-                          {post.frontmatter.tags.map((tag, index, array) => {
-                            if (array.length - 1 === index) {
-                              return (
-                                <span key={tag + `tag`}>
-                                  {tag}
-                                </span>
-                              )
-                            } else {
-                              return (
-                                <span key={tag + `tag`}>
-                                  {tag}, &nbsp;
-                                </span>
-                              )
-                            }
-                          })}
-                        </div>
-                        <Link
-                          className="blogTitle"
-                          to={post.fields.slug}
-                        >
-                          {post.frontmatter.title}
-                        </Link>
                       </div>
-                      <div className="spacer-sm"></div>
-
-                    </div>
-                  )
+                    )
+                  }
+                })
                 }
-              })
-              }
-            </div>
-
+              </div>
+            </section>
           </div>
           <div className="spacer-md"></div>
         </section>

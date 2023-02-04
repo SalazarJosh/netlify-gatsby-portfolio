@@ -30,7 +30,7 @@ export const IndexPageTemplate = ({
         <div className="spacer-lg"></div>
         <div className="divider"></div>
         <div className="spacer-lg"></div>
-        <section className="">
+        <section className="section">
           <GSAPComponent className="homepage-h2 gs_reveal" direction="up" wrapperElement="h2" delay={2}>
             Latest From the Blog
           </GSAPComponent>
@@ -50,7 +50,7 @@ export const IndexPageTemplate = ({
         <div className="spacer-lg"></div>
         <div className="divider"></div>
         <div className="spacer-lg"></div>
-        <section className="">
+        <section className="section">
           <h2 className="homepage-h2 gs_reveal">Shaping My Career</h2>
           <div className="spacer-sm"></div>
           <div className="columns">

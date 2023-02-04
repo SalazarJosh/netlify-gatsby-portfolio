@@ -122,9 +122,11 @@ class HomepageHeader extends Component {
       var pixels = [];
 
       // Map the pixel data (RGB) to an array
+      const canvasWidth32 = tempCanvas.width / 32;
+      var pixel;
       for (var a = 1; a < 33; a++) {
         for (var b = 1; b < 33; b++) {
-          var pixel = ctx.getImageData((tempCanvas.width / 32) * a, (tempCanvas.height / 32) * b, 1, 1).data;
+          pixel = ctx.getImageData(canvasWidth32 * a, canvasWidth32 * b, 1, 1).data;
           pixels.push(pixel);
         }
       }
@@ -380,17 +382,19 @@ class HomepageHeader extends Component {
         </div>
         <div className="spacer-md"></div>
         <div className="container">
-          <div className="columns">
-            <div className="column work gs_reveal">
-              <p>Accessibility</p>
+          <section className="section">
+            <div className="columns">
+              <div className="column work gs_reveal">
+                <p>Accessibility</p>
+              </div>
+              <div className="column work gs_reveal">
+                <p>Development</p>
+              </div>
+              <div className="column work gs_reveal">
+                <p>Design</p>
+              </div>
             </div>
-            <div className="column work gs_reveal">
-              <p>Development</p>
-            </div>
-            <div className="column work gs_reveal">
-              <p>Design</p>
-            </div>
-          </div>
+          </section>
         </div>
       </>
     )
