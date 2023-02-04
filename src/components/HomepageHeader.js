@@ -71,8 +71,8 @@ class HomepageHeader extends Component {
       const tempCanvas = document.createElement('canvas');
       var ctx = tempCanvas.getContext("2d");
 
-      const width = headerContainer.offsetWidth;
-      const height = headerContainer.offsetWidth;
+      const width = headerContainer.offsetHeight;
+      const height = headerContainer.offsetHeight;
 
       const halfWidth = Math.floor(width * 0.5);
 
@@ -122,11 +122,14 @@ class HomepageHeader extends Component {
       var pixels = [];
 
       // Map the pixel data (RGB) to an array
-      const canvasWidth32 = tempCanvas.width / 32;
-      var pixel;
+      var ctxImageData = ctx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+      var sourceBuffer32 = new Uint32Array(ctxImageData.data.buffer);
+
+      console.log("width: " + width + " height: " + height + " "+ sourceBuffer32[0])
+
       for (var a = 1; a < 33; a++) {
         for (var b = 1; b < 33; b++) {
-          pixel = ctx.getImageData(canvasWidth32 * a, canvasWidth32 * b, 1, 1).data;
+          var pixel = ctx.getImageData((tempCanvas.width / 32) * a, (tempCanvas.height / 32) * b, 1, 1).data;
           pixels.push(pixel);
         }
       }
