@@ -20,7 +20,7 @@ We got into sailing sometime in 2021. An awesome neighbor invited my family out 
 Special thanks to Dr. Michael Austerberry [for taking the photos](http://michigansailingclub.org/2021-bonechiller-regatta-photos/).
 
 
-<div class="columns is-mobile widealign">
+<div class="columns widealign">
 <div class="column is-6">
 
 ![two people on a catamaran boat with one of two hulls flying out of the water](/img/_DSC4180.jpg)
@@ -33,7 +33,7 @@ Special thanks to Dr. Michael Austerberry [for taking the photos](http://michiga
 </div>
 </div>
 
-<div class="columns is-mobile widealign">
+<div class="columns widealign">
 <div class="column is-6">
 
 ![a far away shot of two people hiked out on a catamaran with a pirate flag and irish flag being flown on the back of the sail](/img/_DSC0089.png)
@@ -46,7 +46,7 @@ Special thanks to Dr. Michael Austerberry [for taking the photos](http://michiga
 </div>
 </div>
 
-<div class="columns is-mobile widealign">
+<div class="columns widealign">
 <div class="column is-8">
 
 ![Tho people hiked out on the side of a catamaran](/img/_DSC4398.jpg)
@@ -63,7 +63,7 @@ I hope you enjoyed this break from my usual content. I think it's important to d
 
 ⛵⛵⛵
 
-<div class="columns is-mobile widealign">
+<div class="columns widealign">
 <div class="column is-12">
 
 ![several sail boats are tightly grouped and passing a race bouy. In the background, the trees are all in peak autumnal colors.](/img/_DSC3955.jpg)
