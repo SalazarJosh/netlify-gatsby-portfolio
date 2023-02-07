@@ -45,11 +45,14 @@ html::-webkit-scrollbar-thumb
   
 a
   text-decoration: underline
-  color: var(--brandColor)
   transition: color .3s ease-in-out
   
 a:hover
   color: var(--brandColor)
+
+li
+  color: #666
+  font-size: 18px
 
 .amiri-font
   font-family: 'Amiri', serif
@@ -455,6 +458,9 @@ $menu-label-color: $white-ter
   transition: background-position 275ms ease
   text-decoration: none
   cursor: pointer
+
+.view-all-posts > a
+  color: var(--brandColor) !important
   
 .view-all-posts:hover
   background-position: 0 -100%

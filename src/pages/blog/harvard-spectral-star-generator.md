@@ -409,7 +409,7 @@ Within a new GenerateGalaxy() function, I'll create set the stars[] array. On th
 
 Then I'll use a simple for loop to generate each star. This is where most of the generator logic is going to take place.
 
-### 2. Generate a star
+### 2. Collect the stars
 
 Great! the star generator is built. But I'm not currently doing anything with that function. Now I need to set up a new function to contain all the stars. I'll call this function GenerateGalaxy() because that seems to fit.
 

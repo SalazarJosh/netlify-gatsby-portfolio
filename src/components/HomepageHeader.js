@@ -97,7 +97,7 @@ class HomepageHeader extends Component {
       //document.documentElement.style.setProperty("--brandColor", "rgba(" + firstColorR + "," + firstColorG + ", " + firstColorB + ", 1)");
 
       // Create a set of  gradients for the fill
-      var gradients = [[73, 50, 64, 255, 0, 153], [51, 51, 51, 221, 24, 24], [75, 19, 79, 201, 75, 75], [0, 0, 70, 28, 181, 224], [15, 52, 67, 52, 232, 158], [60, 16, 83, 173, 83, 137]];
+      var gradients = [[73, 50, 64, 255, 0, 153], [51, 51, 51, 221, 24, 24], [75, 19, 79, 201, 75, 75], [0, 0, 70, 28, 181, 224], [8, 48, 31, 60, 186, 146], [60, 16, 83, 173, 83, 137]];
 
       if (clickedGradient !== undefined) {
         selectedGradient = clickedGradient;
