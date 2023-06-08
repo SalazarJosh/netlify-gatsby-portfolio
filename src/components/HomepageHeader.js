@@ -388,13 +388,7 @@ class HomepageHeader extends Component {
           <section className="section">
             <div className="columns">
               <div className="column work gs_reveal">
-                <p>Accessibility</p>
-              </div>
-              <div className="column work gs_reveal">
-                <p>Development</p>
-              </div>
-              <div className="column work gs_reveal">
-                <p>Design</p>
+                <p>I'm a designer and my medium is <span style={{fontFamily:'Lucida Console, monospace', fontSize: '1.5rem'}}>&lt;code /&gt;</span></p>
               </div>
             </div>
           </section>
