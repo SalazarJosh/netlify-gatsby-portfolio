@@ -47,15 +47,6 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
                   }}
                 />
               </div>
-              <div className="column is-2 talks-logo-container">
-                <PreviewCompatibleImage
-                  imageInfo={{
-                    image: '/img/an-event-apart-logo.png',
-                    alt: `UCDA Logo`,
-                    className: 'talks-logo'
-                  }}
-                />
-              </div>
             </div>
             <div className="columns">
               <div className="column is-8 is-offset-2">
